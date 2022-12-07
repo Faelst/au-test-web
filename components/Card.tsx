@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import { coverMoneyCentInReal } from '../helpers/coverMoneyCentInReal'
 
 type Props = {
     name: string
@@ -16,8 +17,9 @@ type Props = {
 }
 
 export function Card({ name, href, imageSrc, imageAlt, price, color, isFavorite, handleAddToCart, handleFavoriteProduct }: Props) {
+
     return (
-        <div className="p-5 border-2 mr-10 rounded-md mt-5">
+        <div className="p-5 border-2 mr-10 rounded-md mt-5 w-96">
             <div className="group relative">
                 <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
                     <img
@@ -35,7 +37,7 @@ export function Card({ name, href, imageSrc, imageAlt, price, color, isFavorite,
                             </a>
                         </h4>
                         <p className="mt-1 text-sm text-gray-500">{color}</p>
-                        <p className="mt-3 text-lg font-medium text-gray-900">{price}</p>
+                        <p className="mt-3 text-lg font-medium text-gray-900">{coverMoneyCentInReal(Number(price))}</p>
                     </div>
                     <div className="flex flex-col justify-between">
                         <div className="flex justify-end align-baseline">

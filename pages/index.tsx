@@ -1,31 +1,10 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Card } from "../components/Card"
 import { CheckOutCard } from "../components/CheckOutCard"
 import { Header } from "../components/Header"
+import { fetchProducts } from "../lib/api"
 
 /* eslint-disable @next/next/no-img-element */
-const _products = [
-  {
-    id: 1,
-    name: 'Basic Tee',
-    description: "Existem muitas variações das passagens do Lorem Ipsum disponíveis, mas a maior parte sofreu alterações de alguma forma, pela injecção de humor, ou de palavras aleatórias que nem sequer parecem suficientemente credíveis. Se vai usar uma passagem do Lorem Ipsum, deve ter a certeza que não contém nada de embaraçoso escondido no meio do texto.",
-    href: '#',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: '$35',
-    color: 'Black',
-  },
-  {
-    id: 2,
-    name: 'Basic Tee',
-    description: "Existem muitas variações das passagens do Lorem Ipsum disponíveis, mas a maior parte sofreu alterações de alguma forma, pela injecção de humor, ou de palavras aleatórias que nem sequer parecem suficientemente credíveis. Se vai usar uma passagem do Lorem Ipsum, deve ter a certeza que não contém nada de embaraçoso escondido no meio do texto.",
-    href: '#',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: '$35',
-    color: 'Black',
-  },
-]
 
 interface Product {
   id: number
@@ -42,8 +21,15 @@ interface Product {
 
 export default function Home() {
   const [isCheckout, setIsCheckout] = useState(false)
-  const [products, setProducts] = useState<Product[]>(_products)
+  const [products, setProducts] = useState<Product[]>([])
   const [cartProducts, setCartProducts] = useState<Product[]>([])
+
+  useEffect(() => {
+    fetchProducts().then(({ data }) => {
+      setProducts(data.products)
+    })
+
+  }, [])
 
   const handleClickToCheckout = () => {
     setIsCheckout(!isCheckout)

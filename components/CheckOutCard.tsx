@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import { coverMoneyCentInReal } from '../helpers/coverMoneyCentInReal'
 
 type Props = {
     name: string
@@ -44,7 +45,7 @@ export function CheckOutCard({ name, description, imageSrc, imageAlt, price, qua
                             </div>
                             <div className="flex flex-row items-center">
                                 <p className="text-md text-gray-500 mr-2">SubTotal:</p>
-                                <p className="text-xl text-gray-900">R$ {price}</p>
+                                <p className="text-xl text-gray-900">{coverMoneyCentInReal(Number(price) * quantity)}</p>
                             </div>
                         </div>
                     </div>
