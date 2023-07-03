@@ -1,4 +1,4 @@
-O desafio consiste em criar uma Single Page Application de uma loja virtual bem simples, abaixo coloquei um design para servir de guia e que possui alguns cenários simples, como a home com a listagem de produtos (pode usar o [mocky.io](https://designer.mocky.io/) para gerar um json de teste e consumir via API) onde é possível adicionar a unidade de cada produto no carrinho e a tela de carrinho onde é possível visualizar o valor geral do pedido, de cada produto, remover um item e até remover o produto por inteiro. 
+O desafio consiste em criar uma Single Page Application de uma loja virtual, abaixo coloquei um design para servir de guia e que possui alguns cenários simples, como a home com a listagem de produtos (pode usar o [mocky.io](https://designer.mocky.io/) para gerar um json de teste e consumir via API) onde é possível adicionar a unidade de cada produto no carrinho e a tela de carrinho onde é possível visualizar o valor geral do pedido, de cada produto, remover um item e até remover o produto por inteiro. 
 
 Implementado com conhecimento e boas práticas de projeto em React (NextJs)
 
